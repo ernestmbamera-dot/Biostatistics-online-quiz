@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H1GCER8P1G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H1GCER8P1G');
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Critical Thinking Quiz — BIOSTATISTICS</title>
@@ -35,6 +43,7 @@ body {
   min-height: 100vh;
 }
 
+/* bg grid */
 body::before {
   content: '';
   position: fixed;
@@ -48,10 +57,12 @@ body::before {
 
 .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
 
+/* ── SCREENS ── */
 .screen { display: none; animation: fadeUp 0.4s ease; }
 .screen.active { display: block; }
 @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
 
+/* ── NAV ── */
 nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 20px 0; margin-bottom: 20px;
@@ -63,6 +74,7 @@ nav {
 .nav-btn { background: transparent; border: 1px solid var(--border2); color: var(--muted); padding: 6px 14px; border-radius: 40px; font-size: 12px; font-family: var(--font-body); cursor: pointer; transition: all 0.2s; }
 .nav-btn:hover, .nav-btn.active { border-color: var(--accent); color: var(--accent); background: var(--pill-bg); }
 
+/* ── HERO ── */
 .hero { padding: 60px 0 40px; }
 .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--pill-bg); border: 1px solid var(--pill-border); color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 40px; margin-bottom: 28px; }
 .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
@@ -71,9 +83,11 @@ h1 { font-family: var(--font-display); font-size: clamp(36px, 6vw, 58px); font-w
 h1 em { font-style: normal; color: var(--accent); }
 .hero-sub { font-size: 15px; color: var(--muted); max-width: 480px; margin-bottom: 36px; line-height: 1.7; }
 .hero-stats { display: flex; gap: 28px; margin-bottom: 40px; }
+.stat { }
 .stat-n { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--text); }
 .stat-l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
 
+/* ── REGISTER FORM ── */
 .register-card {
   background: var(--surface);
   border: 1px solid var(--border2);
@@ -92,6 +106,8 @@ input, select {
   outline: none; transition: border-color 0.2s;
 }
 input:focus, select:focus { border-color: var(--accent); }
+input::placeholder { color: var(--muted); }
+select option { background: var(--surface2); }
 .topic-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .topic-toggle {
   background: var(--surface2); border: 1px solid var(--border2); color: var(--muted);
@@ -100,6 +116,7 @@ input:focus, select:focus { border-color: var(--accent); }
 }
 .topic-toggle.on { background: var(--pill-bg); border-color: var(--pill-border); color: var(--accent); }
 
+/* ── BUTTONS ── */
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--font-body); font-size: 14px; font-weight: 500;
@@ -107,16 +124,19 @@ input:focus, select:focus { border-color: var(--accent); }
   border: none; transition: all 0.2s; text-decoration: none;
 }
 .btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { background: #7c5dff; transform: translateY(-1px); }
+.btn-primary:hover { background: #6d8aff; transform: translateY(-1px); }
 .btn-ghost { background: transparent; border: 1px solid var(--border2); color: var(--muted); }
 .btn-ghost:hover { border-color: var(--border2); color: var(--text); background: var(--surface2); }
+.btn-sm { padding: 7px 16px; font-size: 13px; }
 
+/* ── PROGRESS ── */
 .progress-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .progress-label { font-size: 12px; color: var(--muted); }
 .progress-score { font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--accent); }
 .progress-track { height: 3px; background: var(--surface2); border-radius: 3px; margin-bottom: 28px; overflow: hidden; }
 .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent)); border-radius: 3px; transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
 
+/* ── QUESTION CARD ── */
 .q-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 16px; padding: 28px 28px 20px; margin-bottom: 16px; }
 .q-section-tag { display: inline-block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); background: var(--pill-bg); border: 1px solid var(--pill-border); padding: 3px 10px; border-radius: 40px; margin-bottom: 14px; }
 .q-text { font-family: var(--font-display); font-size: 18px; font-weight: 600; line-height: 1.4; color: var(--text); margin-bottom: 22px; }
@@ -129,7 +149,8 @@ input:focus, select:focus { border-color: var(--accent); }
   font-family: var(--font-body); font-size: 14px; color: var(--text);
   transition: all 0.2s; line-height: 1.5;
 }
-.opt-btn:hover:not(:disabled) { border-color: var(--accent); background: var(--pill-bg); }
+.opt-btn:hover:not(:disabled) { border-color: var(--accent); background: rgba(93,122,255,0.06); }
+.opt-btn:disabled { cursor: default; }
 .opt-letter {
   min-width: 24px; height: 24px; border-radius: 6px;
   background: var(--border); display: flex; align-items: center; justify-content: center;
@@ -141,19 +162,40 @@ input:focus, select:focus { border-color: var(--accent); }
 .opt-btn.wrong { border-color: var(--red); background: rgba(255,92,106,0.08); }
 .opt-btn.wrong .opt-letter { background: var(--red); color: #fff; }
 
+/* ── FEEDBACK ── */
 .feedback-box {
   border-radius: 10px; padding: 14px 16px; font-size: 13px; line-height: 1.65;
   margin-bottom: 14px; display: none;
 }
 .feedback-box.correct { background: rgba(46,204,126,0.1); border: 1px solid rgba(46,204,126,0.3); color: #7ef0b0; }
 .feedback-box.wrong { background: rgba(255,92,106,0.1); border: 1px solid rgba(255,92,106,0.3); color: #ffa0a8; }
+.feedback-box strong { display: block; margin-bottom: 4px; font-family: var(--font-display); font-size: 13px; }
 
+/* ── DISCUSSION ── */
+.discussion-section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 16px; display: none; }
+.discussion-section h4 { font-family: var(--font-display); font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+.comments-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; max-height: 260px; overflow-y: auto; }
+.comment {
+  background: var(--surface2); border-radius: 8px; padding: 10px 12px; font-size: 13px;
+}
+.comment-author { font-weight: 500; color: var(--accent); font-size: 12px; margin-bottom: 3px; }
+.comment-text { color: var(--text); line-height: 1.5; }
+.comment-time { font-size: 10px; color: var(--muted); margin-top: 4px; }
+.comment-input-row { display: flex; gap: 8px; }
+.comment-input-row input { flex: 1; }
+.no-comments { font-size: 12px; color: var(--muted); font-style: italic; }
+
+/* ── NAV BUTTONS ── */
+.quiz-nav { display: flex; align-items: center; justify-content: space-between; }
+
+/* ── RESULT ── */
 .result-hero { text-align: center; padding: 60px 0 40px; }
 .result-ring {
   width: 140px; height: 140px; border-radius: 50%;
   background: conic-gradient(var(--accent) var(--pct, 0%), var(--surface2) 0%);
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 24px;
+  box-shadow: 0 0 40px rgba(93,122,255,0.2);
 }
 .result-ring-inner {
   width: 108px; height: 108px; border-radius: 50%;
@@ -161,29 +203,61 @@ input:focus, select:focus { border-color: var(--accent); }
   align-items: center; justify-content: center;
 }
 .result-pct { font-family: var(--font-display); font-size: 32px; font-weight: 800; }
+.result-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
 .result-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 10px; }
-.result-sub { color: var(--muted); max-width: 400px; margin: 0 auto 32px; font-size: 14px; }
+.result-sub { color: var(--muted); max-width: 400px; margin: 0 auto 32px; font-size: 14px; line-height: 1.65; }
+.result-breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 36px; }
+.breakdown-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 18px; text-align: center; }
+.breakdown-n { font-family: var(--font-display); font-size: 28px; font-weight: 700; }
+.breakdown-n.green { color: var(--green); }
+.breakdown-n.red { color: var(--red); }
+.breakdown-n.amber { color: var(--amber); }
+.breakdown-l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 4px; }
 
+/* ── LEADERBOARD ── */
 .lb-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 16px; overflow: hidden; margin-bottom: 24px; }
 .lb-header { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-.lb-row { display: flex; align-items: center; gap: 16px; padding: 14px 24px; border-bottom: 1px solid var(--border); }
-.lb-rank { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--muted); width: 24px; text-align: center; }
+.lb-header h3 { font-family: var(--font-display); font-size: 17px; font-weight: 700; }
+.lb-row { display: flex; align-items: center; gap: 16px; padding: 14px 24px; border-bottom: 1px solid var(--border); transition: background 0.15s; }
+.lb-row:last-child { border-bottom: none; }
+.lb-row:hover { background: var(--surface2); }
+.lb-rank { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--muted); width: 24px; text-align: center; flex-shrink: 0; }
 .lb-rank.gold { color: #ffd700; }
 .lb-rank.silver { color: #c0c0c0; }
 .lb-rank.bronze { color: #cd7f32; }
-.lb-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 13px; font-weight: 700; }
+.lb-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 13px; font-weight: 700; flex-shrink: 0; }
 .lb-info { flex: 1; }
-.lb-name { font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; }
-.badge-you { background: var(--accent); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; font-family: var(--font-display); letter-spacing: 0.05em; }
-.lb-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.lb-name { font-size: 14px; font-weight: 500; }
+.lb-meta { font-size: 11px; color: var(--muted); margin-top: 1px; }
 .lb-score-wrap { text-align: right; }
 .lb-score { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--accent); }
-.lb-pct { font-size: 10px; color: var(--muted); }
-.lb-empty { padding: 32px; text-align: center; color: var(--muted); font-size: 14px; }
+.lb-pct { font-size: 11px; color: var(--muted); }
+.lb-empty { padding: 36px 24px; text-align: center; color: var(--muted); font-size: 13px; }
+
+/* ── BADGES ── */
+.badge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 40px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+.badge-you { background: rgba(93,122,255,0.15); color: var(--accent); border: 1px solid var(--pill-border); }
+
+/* ── MISC ── */
+.divider { height: 1px; background: var(--border); margin: 28px 0; }
+.text-muted { color: var(--muted); }
+.text-center { text-align: center; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.flex-gap { display: flex; gap: 10px; flex-wrap: wrap; }
+.sr-only { position: absolute; width:1px; height:1px; overflow:hidden; clip: rect(0,0,0,0); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
 
 @media(max-width: 560px) {
   .form-row { grid-template-columns: 1fr; }
+  .result-breakdown { grid-template-columns: 1fr 1fr; }
   h1 { font-size: 32px; }
+  .q-text { font-size: 16px; }
 }
 </style>
 </head>
@@ -191,53 +265,56 @@ input:focus, select:focus { border-color: var(--accent); }
 
 <div class="wrap">
   <nav>
-    <div class="nav-logo">BIOSTATISTICS<span>/quiz</span></div>
+    <div class="nav-logo">CT<span>/quiz</span></div>
     <div class="nav-links">
       <button class="nav-btn active" onclick="showScreen('home')">Quiz</button>
       <button class="nav-btn" onclick="showScreen('leaderboard')">Leaderboard</button>
     </div>
   </nav>
 
+  <!-- HOME / REGISTER -->
   <div id="screen-home" class="screen active">
     <div class="hero">
-      <div class="hero-tag">Critical Thinking · Biostatistics</div>
-      <h1>Master <em>Statistical</em><br>Concepts</h1>
-      <p class="hero-sub">Test your knowledge with these critical thinking questions.</p>
+      <div class="hero-tag">BIOSTATISTICS · GROUP 1 Mbamera Tech</div>
+      <h1>Master <em>Critical</em><br>Thinking</h1>
+      <p class="hero-sub">40 questions across every section of the Topic 2 slides. Compete with your group, leave discussion notes, and track your score.</p>
       <div class="hero-stats">
-        <div class="stat"><div class="stat-n" id="stat-q-count">0</div><div class="stat-l">Questions</div></div>
+        <div class="stat"><div class="stat-n">40</div><div class="stat-l">Questions</div></div>
+        <div class="stat"><div class="stat-n">9</div><div class="stat-l">Topics</div></div>
         <div class="stat"><div class="stat-n" id="stat-players">0</div><div class="stat-l">Attempts</div></div>
       </div>
     </div>
 
     <div class="register-card">
       <h2>Register to start</h2>
-      <p>Enter your details to track your progress on the leaderboard.</p>
+      <p>Your name and score will appear on the group leaderboard.</p>
       <div class="form-row">
         <div>
           <label for="inp-name">Full name</label>
-          <input type="text" id="inp-name" placeholder="e.g. Ernest Leo">
+          <input type="text" id="inp-name" placeholder="e.g. Leo Mbamera">
         </div>
         <div>
           <label for="inp-reg">Reg. number</label>
-          <input type="text" id="inp-reg" placeholder="e.g. 2501...">
+          <input type="text" id="inp-reg" placeholder="e.g. 2501013**">
         </div>
       </div>
       <div class="form-row full">
         <div>
-          <label>Filter domains</label>
+          <label>Filter topics (tap to deselect)</label>
           <div class="topic-grid" id="topic-grid"></div>
         </div>
       </div>
-      <button class="btn btn-primary" onclick="startQuiz()" style="width:100%;justify-content:center">
+      <button class="btn btn-primary" onclick="startQuiz()" style="width:100%;justify-content:center;margin-top:4px">
         Start quiz →
       </button>
     </div>
   </div>
 
+  <!-- QUIZ -->
   <div id="screen-quiz" class="screen">
     <div style="padding-top: 24px;">
       <div class="progress-header">
-        <span class="progress-label" id="prog-label">Question 1</span>
+        <span class="progress-label" id="prog-label">Question 1 of 40</span>
         <span class="progress-score" id="prog-score">0 pts</span>
       </div>
       <div class="progress-track"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
@@ -250,70 +327,129 @@ input:focus, select:focus { border-color: var(--accent); }
 
       <div class="feedback-box" id="feedback"></div>
 
-      <div style="display:flex; justify-content:space-between; align-items:center">
-        <button class="btn btn-ghost" onclick="showScreen('home')">Exit</button>
+      <div class="discussion-section" id="discussion-section">
+        <h4>💬 Group discussion</h4>
+        <div class="comments-list" id="comments-list"></div>
+        <div class="comment-input-row">
+          <input type="text" id="comment-input" placeholder="Add your thought…" maxlength="200" onkeydown="if(event.key==='Enter')postComment()">
+          <button class="btn btn-ghost btn-sm" onclick="postComment()">Post</button>
+        </div>
+      </div>
+
+      <div class="quiz-nav">
+        <button class="btn btn-ghost" onclick="showScreen('home')">← Exit</button>
         <button class="btn btn-primary" id="next-btn" onclick="nextQ()" style="display:none">Next →</button>
       </div>
     </div>
   </div>
 
+  <!-- RESULT -->
   <div id="screen-result" class="screen">
     <div class="result-hero">
       <div class="result-ring" id="result-ring">
         <div class="result-ring-inner">
           <div class="result-pct" id="result-pct">0%</div>
-          <div style="font-size:11px;color:var(--muted);text-transform:uppercase">score</div>
+          <div class="result-label">score</div>
         </div>
       </div>
-      <div class="result-title" id="result-title">Finish!</div>
+      <div class="result-title" id="result-title">Well done!</div>
       <div class="result-sub" id="result-sub"></div>
-      <div style="display:flex;gap:10px;justify-content:center">
+      <div class="result-breakdown">
+        <div class="breakdown-card">
+          <div class="breakdown-n green" id="bd-correct">0</div>
+          <div class="breakdown-l">Correct</div>
+        </div>
+        <div class="breakdown-card">
+          <div class="breakdown-n red" id="bd-wrong">0</div>
+          <div class="breakdown-l">Wrong</div>
+        </div>
+        <div class="breakdown-card">
+          <div class="breakdown-n amber" id="bd-total">0</div>
+          <div class="breakdown-l">Total</div>
+        </div>
+      </div>
+      <div class="flex-gap" style="justify-content:center">
         <button class="btn btn-ghost" onclick="restartQuiz()">Retry</button>
-        <button class="btn btn-primary" onclick="showScreen('leaderboard')">Leaderboard →</button>
+        <button class="btn btn-primary" onclick="showScreen('leaderboard')">View leaderboard →</button>
       </div>
     </div>
   </div>
 
+  <!-- LEADERBOARD -->
   <div id="screen-leaderboard" class="screen">
     <div style="padding-top: 32px;">
-      <h2 style="font-family: var(--font-display); font-size: 26px; font-weight: 800; margin-bottom: 28px;">Leaderboard</h2>
+      <h2 style="font-family: var(--font-display); font-size: 26px; font-weight: 800; margin-bottom: 6px;">Leaderboard</h2>
+      <p class="text-muted" style="font-size: 13px; margin-bottom: 28px;">Group rankings — all attempts this session.</p>
       <div class="lb-card">
         <div class="lb-header">
-          <h3 style="font-size:15px">Top performers</h3>
+          <h3>Top scores</h3>
           <span class="text-muted" style="font-size:12px" id="lb-count">0 attempts</span>
         </div>
         <div id="lb-rows"></div>
       </div>
-      <div style="text-align:center">
-        <button class="btn btn-ghost" onclick="showScreen('home')">Back to home</button>
+      <div class="text-center">
+        <button class="btn btn-ghost" onclick="showScreen('home')">Take the quiz →</button>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-// =====================================================================
-// ⚠️ PASTE YOUR BIOSTATISTICS QUESTIONS HERE
-// Replace this empty array with your actual Biostatistics questions array.
-// =====================================================================
 const QUESTIONS = [
-  // {s: "Topic", q: "Question?", opts: ["A", "B", "C", "D"], ans: 1, exp: "Explanation"},
+  {s:"What is critical thinking",q:"Which statement best captures the definition of critical thinking?",opts:["Accepting and memorising information published in academic texts","The objective analysis and evaluation of issues to form well-reasoned judgments","Following the instructions of a teacher or supervisor without challenge","Choosing the most popular answer among your peers"],ans:1,exp:"Critical thinking is the objective analysis and evaluation of an issue in order to form a judgment — it requires active inquiry, not passive acceptance."},
+  {s:"What is critical thinking",q:"Critical thinking is particularly valuable when dealing with problems that are:",opts:["Well-defined with a single correct answer","Already solved and documented","Not clearly defined and lacking clear-cut answers","Simple enough to answer from memory"],ans:2,exp:"The slides define critical thinking as thinking which seeks to explore questions for issues which are not clearly defined and for which there are no clear-cut answers."},
+  {s:"Attributes of a critical thinker",q:"Which behaviour is NOT an attribute of a critical thinker according to the slides?",opts:["Asking pertinent questions","Assessing statements and arguments carefully","Accepting expert statements without further questioning","Admitting a lack of understanding"],ans:2,exp:"Critical thinkers do not simply accept statements — they assess them. Accepting authority without question is the opposite of critical thinking."},
+  {s:"Attributes of a critical thinker",q:"A critical thinker 'suspends judgment.' What does this mean in practice?",opts:["They never form an opinion on any issue","They wait until all facts are gathered before drawing a conclusion","They always side with the majority view","They ignore conflicting evidence"],ans:1,exp:"Suspending judgment means withholding your conclusion until all relevant facts have been gathered and carefully considered."},
+  {s:"Attributes of a critical thinker",q:"In the context of critical thinking, 'scepticism' means:",opts:["Rejecting every new idea until proven wrong","Accepting only what appears on official platforms","Questioning and doubting claims rather than accepting them without evidence","Believing that no truth can ever be found"],ans:2,exp:"Scepticism is a healthy doubt about the truth of something — it prevents uncritical acceptance and drives the search for evidence."},
+  {s:"Attributes of a critical thinker",q:"Which pair of attributes best describe a critical thinker's orientation toward new ideas?",opts:["Closed-minded and tradition-focused","Curious and interested in finding new solutions","Agreeable and reluctant to challenge others","Confident and unwilling to admit ignorance"],ans:1,exp:"Critical thinkers have a strong sense of curiosity and are genuinely interested in finding new solutions, not just confirming what they already believe."},
+  {s:"Types of critical questions",q:"'How do we know this is true?' is an example of a critical question targeting:",opts:["Relevance of the topic","The reliability and verifiability of a claim","The personal background of the speaker","The popularity of the idea"],ans:1,exp:"This question directly challenges whether a claim is verifiable — pushing toward evidence-based reasoning rather than assumption."},
+  {s:"Types of critical questions",q:"The question 'What could be going on below the surface?' is designed to:",opts:["Dismiss the obvious facts","Uncover hidden assumptions, motives, or factors not immediately visible","Confirm the most straightforward interpretation","Seek the group's consensus"],ans:1,exp:"This question encourages deeper investigation beyond surface-level information to find what might be concealed or overlooked."},
+  {s:"Standards of critical thinking",q:"A critical thinker asks 'Could you elaborate further?' — which intellectual standard are they applying?",opts:["Accuracy — checking if something is correct","Clarity — ensuring ideas are fully and clearly expressed","Fairness — considering other viewpoints","Significance — focusing on what matters most"],ans:1,exp:"'Could you elaborate further?' is the example given in the slides for Clarity — making sure a point is fully and clearly communicated."},
+  {s:"Standards of critical thinking",q:"'Do we need to look at this from another angle?' corresponds to which standard?",opts:["Logic","Precision","Breadth","Depth"],ans:2,exp:"Breadth is about examining an issue from multiple angles or perspectives — the example in the slides is 'Do we need to look at this from another angle?'"},
+  {s:"Standards of critical thinking",q:"Which standard is being applied when someone asks 'Does what you say follow from the evidence?'",opts:["Fairness","Relevance","Logic","Accuracy"],ans:2,exp:"Logic asks whether the conclusion actually follows validly from the evidence and premises — checking the internal consistency of reasoning."},
+  {s:"Standards of critical thinking",q:"'Am I sympathetically representing the viewpoints of others?' reflects which of the nine critical thinking standards?",opts:["Depth","Fairness","Precision","Significance"],ans:1,exp:"Fairness requires that you represent all viewpoints honestly and sympathetically — not distorting or dismissing perspectives you disagree with."},
+  {s:"Barriers to critical thinking",q:"Egocentric thinking is best described as:",opts:["Thinking too broadly about global issues","Self-centred thinking that fails to consider others' rights and perspectives","Overrelying on group decision-making","Being overly precise and detail-oriented"],ans:1,exp:"Egocentrism is the inability to take the perspective of another person — assuming that your own beliefs are true without questioning their basis."},
+  {s:"Barriers to critical thinking",q:"Someone says: 'Everyone on WhatsApp is sharing it, so it must be true.' This illustrates:",opts:["Egocentric thinking","Sociocentrism","Reacting in self-defence","Fear of change"],ans:1,exp:"Sociocentrism is group-centred thinking — accepting beliefs because your social group holds them, without questioning the evidence behind them."},
+  {s:"Barriers to critical thinking",q:"Defending a belief you privately know is flawed because you feel personally attacked describes:",opts:["Peer pressure","Greed","Reacting in self-defence","Sociocentrism"],ans:2,exp:"Reacting in self-defence occurs when we treat our ideas as extensions of our identity and defend them at all costs — even knowing they are flawed."},
+  {s:"Barriers to critical thinking",q:"The slides state 'Your idea(s) is not you!' This is a response to which barrier?",opts:["Greed","Fear of change","Reacting in self-defence","Peer pressure"],ans:2,exp:"This principle directly addresses self-defence thinking — reminding us that criticising an idea is not an attack on the person who holds it."},
+  {s:"Barriers to critical thinking",q:"Students refusing to use Moodle during COVID without ever trying it, due to unverified fears about data usage, illustrates:",opts:["Peer pressure","Greed","Sociocentrism","Fear of change"],ans:3,exp:"Fear of change — or unwillingness to change — prevented students from evaluating Moodle on its actual merits. They refused without evidence."},
+  {s:"Barriers to critical thinking",q:"How does greed function as a barrier to critical thinking?",opts:["It makes people overly cautious about investments","It prevents people from asking obvious questions when the promise of reward is present","It encourages people to seek more evidence","It makes people focus only on long-term outcomes"],ans:1,exp:"Greed stops critical questioning — the desire for a reward overrides the rational impulse to ask 'Is this legitimate?' or 'What are the risks?'"},
+  {s:"Barriers to critical thinking",q:"Dressing uncomfortably simply to fit in with friends — without questioning whether it is right — illustrates which barrier?",opts:["Greed","Egocentric thinking","Peer pressure","Fear of change"],ans:2,exp:"Peer pressure causes people to adopt behaviours to please others without critically examining whether those behaviours are appropriate or beneficial."},
+  {s:"Critical reading",q:"How does critical reading differ from ordinary reading?",opts:["It is slower and uses a dictionary more frequently","It does not take the text at face value — it examines the claims being made","It focuses only on the grammar and style of writing","It requires reading the text multiple times with no analysis"],ans:1,exp:"Critical reading involves active examination of the claims in a text rather than passive absorption — it treats the reader as an analyst, not just a receiver."},
+  {s:"Critical reading",q:"When the slides say that the critical reader 'assumes the role of the writer,' this means:",opts:["They rewrite the text in their own words","They are forced to consider their own position and begin constructing arguments","They try to imitate the author's writing style","They agree with everything the author says"],ans:1,exp:"As you read and encounter competing views, you begin forming your own position — effectively becoming a writer of arguments yourself."},
+  {s:"Parts of an argument",q:"In a formal argument, the CONCLUSION is best defined as:",opts:["The opening line that introduces the topic","The claim that the author is persuading the reader to believe","The factual data supporting the reasons","The counterargument the author addresses"],ans:1,exp:"The conclusion is the central claim — what the author is ultimately trying to persuade the reader to accept or believe."},
+  {s:"Parts of an argument",q:"Premises (reasons) serve which function in an argument?",opts:["They contradict the conclusion to show balance","They support and persuade the reader to accept the conclusion","They provide numerical data to confuse the audience","They summarise what other authors have written"],ans:1,exp:"Premises are the 'why' behind the conclusion — they support and persuade the reader to believe the main claim."},
+  {s:"Parts of an argument",q:"Evidence differs from premises because it specifically:",opts:["States the author's personal opinion","Backs up reasons with facts, statistics, or experimental results to prevent questioning","Always comes from a government source","Is always a personal story from the author"],ans:1,exp:"Evidence (facts, statistics, experimental findings) is used to support reasons so they cannot be easily dismissed or questioned."},
+  {s:"Indicator words",q:"Which word signals that a CONCLUSION follows?",opts:["Since","Because","Therefore","If"],ans:2,exp:"'Therefore' (along with 'so', 'hence', 'thus', 'consequently') is a conclusion indicator — it signals that what follows is the main claim being argued."},
+  {s:"Indicator words",q:"'Since', 'because', and 'from which it follows' indicate:",opts:["Conclusions","Premises and reasons","Evidence only","Fallacies in reasoning"],ans:1,exp:"These words signal that what follows is a premise or reason being offered to support the conclusion."},
+  {s:"Indicator words",q:"When an argument has NO indicator words, the reader must:",opts:["Assume it has no conclusion and ignore it","Rely on analytical ability to determine which claim is the main point","Look for fallacies only","Ask the author for clarification"],ans:1,exp:"Without indicator words, you must carefully analyse each claim to identify which is the conclusion and which are premises."},
+  {s:"Evaluating reasoning",q:"A 'false premise' is best defined as:",opts:["A very strong conclusion","A starting point that has not been proven or backed with evidence","A well-supported reason grounded in data","An accurate and verified statistic"],ans:1,exp:"A false premise is an unproven or unsupported starting point — the argument may look valid but stands on shaky, unverified ground."},
+  {s:"Evaluating reasoning",q:"A 'cogent' argument is one that is:",opts:["Deliberately misleading","Very clear, logical, and convincing","Based entirely on emotions","Supported only by anecdotal evidence"],ans:1,exp:"The slides define cogent as an argument that is very clear, logical, and convincing — the ideal standard for any argument."},
+  {s:"Fallacies",q:"An ad hominem fallacy involves:",opts:["Presenting insufficient evidence for a conclusion","Attacking the person making an argument rather than the argument itself","Assuming that because Y followed X, X caused Y","Distracting from the issue by changing the subject"],ans:1,exp:"Ad hominem attacks the individual ('Don't believe Kim — Kim dropped out!') instead of engaging with the actual argument being made."},
+  {s:"Fallacies",q:"'I studied hard and then failed — therefore studying caused my failure.' This is:",opts:["A hasty generalisation","A red herring","A post hoc fallacy","An ad hominem attack"],ans:2,exp:"Post hoc assumes X caused Y simply because Y followed X. Studying before failing does not logically make studying the cause of failure."},
+  {s:"Fallacies",q:"Judging an entire course as boring after only one day of classes is an example of:",opts:["Post hoc fallacy","Red herring","Hasty generalisation","Ad hominem"],ans:2,exp:"Hasty generalisation draws a sweeping conclusion from insufficient or unrepresentative evidence — one day is far too little to judge a whole course."},
+  {s:"Fallacies",q:"A red herring fallacy works by:",opts:["Exaggerating statistics to mislead","Distracting from the real argument by introducing an irrelevant topic","Attacking the character of the speaker","Drawing a conclusion before enough evidence is gathered"],ans:1,exp:"A red herring shifts focus away from the actual issue to an unrelated topic — derailing the logical flow of the discussion."},
+  {s:"Evaluating evidence",q:"Why must you check the DATE of research when evaluating evidence?",opts:["Older studies are always conducted poorly","Data may be out of date and conclusions may have been revised by newer findings","All recent data is automatically more reliable","The date reveals the author's political bias"],ans:1,exp:"Research findings can become outdated — checking the date ensures you are not relying on conclusions that have since been revised or contradicted."},
+  {s:"Evaluating evidence",q:"Why are peer-reviewed academic journals more reliable than newspapers for research evidence?",opts:["They are published by the government, which guarantees accuracy","They are usually longer and more detailed","They are based on in-depth research and subjected to expert review","They are always free to access online"],ans:2,exp:"Academic journals undergo rigorous peer review and are based on systematic in-depth research — making them more authoritative than general media."},
+  {s:"Evaluating evidence",q:"Words like 'surely', 'clearly', and 'obviously' are called 'persuader words' because they:",opts:["Always signal that evidence follows","Make claims appear self-evident without requiring actual proof","Indicate the author is being honest","Help the reader identify the conclusion"],ans:1,exp:"Persuader words create an illusion that a claim needs no justification — they bypass critical scrutiny by making points seem obvious when they may not be."},
+  {s:"Evaluating evidence",q:"When evaluating statistics, why does sample size matter most?",opts:["Larger samples are always biased toward one group","Small samples yield unreliable generalisations — larger samples are more reliable when results need to be generalised","Sample size has no effect on the validity of conclusions","Researchers always prefer small samples for accuracy"],ans:1,exp:"Small samples give unreliable information. All things being equal, larger samples produce more reliable data when generalising to a wider population."},
+  {s:"Critical writing",q:"What distinguishes critical writing from ordinary academic writing?",opts:["It agrees with every source it cites","It analyses and evaluates information from multiple sources to construct an argument","It summarises one authoritative source very thoroughly","It focuses solely on creative expression and personal narrative"],ans:1,exp:"Critical writing analyses and evaluates — usually drawing on multiple sources — to build a reasoned argument, not just to summarise or agree."},
+  {s:"Critical writing",q:"Why should a critical writer begin with a clear conclusion?",opts:["To follow the convention required by most universities","To provide a goal post that directs all reasoning, evidence, and examples","To avoid having to use evidence throughout the piece","To make the writing easier to summarise later"],ans:1,exp:"Starting with a conclusion gives you a clear goal — everything else (reasons, evidence, structure) is directed toward supporting that central claim."},
+  {s:"Critical writing",q:"'Taking multiple perspectives' in critical writing means:",opts:["Writing exclusively from your own point of view","Using only the strongest single source for your argument","Analysing from more than one angle — weighing both strengths and weaknesses","Agreeing with the most widely cited academic opinion"],ans:2,exp:"Multiple perspectives means drawing on more than one source, reason, and angle — honestly considering strengths and weaknesses rather than only what supports your view."},
 ];
-// =====================================================================
 
 const TOPICS = [...new Set(QUESTIONS.map(q => q.s))];
-const AVATARS = ['#5d7aff','#7c5dff','#2ecc7e','#ff5c6a','#ffbb3d'];
+const AVATARS = ['#5d7aff','#2ecc7e','#ff5c6a','#ffbb3d','#7c5dff','#1abc9c','#e74c3c','#f39c12','#9b59b6','#3498db'];
 
 let activeTopics = new Set(TOPICS);
 let quiz = [];
 let cur = 0, score = 0, answered = false;
 let currentUser = {name:'', reg:''};
-let leaderboard = JSON.parse(localStorage.getItem('biostat_quiz_lb') || '[]');
+let leaderboard = JSON.parse(localStorage.getItem('ct_lb') || '[]');
+let comments = JSON.parse(localStorage.getItem('ct_comments') || '{}');
 
-// Utility to escape HTML and prevent formatting errors in leaderboard
-function escHtml(str) { 
-  return str.replace(/[&<>'"]/g, tag => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'}[tag] || tag)); 
-}
+function saveComments(){ localStorage.setItem('ct_comments', JSON.stringify(comments)); }
+function saveLB(){ localStorage.setItem('ct_lb', JSON.stringify(leaderboard)); }
 
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -321,121 +457,180 @@ function showScreen(id){
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   if(id==='leaderboard') { renderLB(); document.querySelectorAll('.nav-btn')[1].classList.add('active'); }
   else document.querySelectorAll('.nav-btn')[0].classList.add('active');
+  window.scrollTo(0,0);
 }
 
 function buildTopicGrid(){
   const g = document.getElementById('topic-grid');
+  g.innerHTML='';
   TOPICS.forEach(t => {
     const b = document.createElement('button');
     b.className = 'topic-toggle on';
     b.textContent = t;
-    b.onclick = () => {
-      if(activeTopics.has(t)){ if(activeTopics.size>1){ activeTopics.delete(t); b.className='topic-toggle'; } }
-      else { activeTopics.add(t); b.className='topic-toggle on'; }
+    b.onclick = function(){
+      if(activeTopics.has(t)){
+        if(activeTopics.size === 1) return;
+        activeTopics.delete(t); b.className='topic-toggle';
+      } else {
+        activeTopics.add(t); b.className='topic-toggle on';
+      }
     };
     g.appendChild(b);
   });
 }
 
+function updateStatPlayers(){
+  document.getElementById('stat-players').textContent = leaderboard.length;
+}
+
 function startQuiz(){
   const name = document.getElementById('inp-name').value.trim();
-  if(!name){ alert('Please enter your name.'); return; }
-  currentUser = { name, reg: document.getElementById('inp-reg').value.trim() };
-  
-  // Randomization Logic applies here:
-  quiz = QUESTIONS.filter(q => activeTopics.has(q.s))
-    .sort(()=>Math.random()-0.5)
-    .slice(0,50)
-    .map(q => {
-      // Map options to track which one is the actual answer
-      let mappedOpts = q.opts.map((text, index) => ({
-        text: text,
-        isCorrect: index === q.ans
-      }));
-      // Shuffle the options
-      mappedOpts.sort(() => Math.random() - 0.5);
-      // Return updated question object with the new answer index
-      return {
-        ...q,
-        opts: mappedOpts.map(o => o.text),
-        ans: mappedOpts.findIndex(o => o.isCorrect)
-      };
-    });
-
-  if(quiz.length === 0) { alert('No questions found! Did you paste your array?'); return; }
-
-  cur = 0; score = 0;
+  const reg = document.getElementById('inp-reg').value.trim();
+  if(!name){ alert('Please enter your name to continue.'); return; }
+  currentUser = { name, reg };
+  quiz = QUESTIONS.filter(q => activeTopics.has(q.s)).sort(()=>Math.random()-0.5);
+  if(quiz.length === 0){ alert('Select at least one topic.'); return; }
+  cur = 0; score = 0; answered = false;
   showScreen('quiz');
   renderQ();
 }
 
 function renderQ(){
+  if(cur >= quiz.length){ endQuiz(); return; }
   const q = quiz[cur];
-  document.getElementById('prog-fill').style.width = (cur/quiz.length*100)+'%';
+  const pct = (cur / quiz.length) * 100;
+  document.getElementById('prog-fill').style.width = pct + '%';
   document.getElementById('prog-label').textContent = `Question ${cur+1} of ${quiz.length}`;
   document.getElementById('prog-score').textContent = `${score} pts`;
   document.getElementById('q-section').textContent = q.s;
   document.getElementById('q-text').textContent = q.q;
   const opts = document.getElementById('options');
-  opts.innerHTML = '';
-  q.opts.forEach((o, i) => {
+  opts.innerHTML='';
+  const letters = ['A','B','C','D'];
+  q.opts.forEach((o,i)=>{
     const b = document.createElement('button');
-    b.className = 'opt-btn';
-    b.innerHTML = `<span class="opt-letter">${String.fromCharCode(65+i)}</span><span>${o}</span>`;
-    b.onclick = () => { if(!answered) select(i, b); };
+    b.className='opt-btn';
+    b.innerHTML = `<span class="opt-letter">${letters[i]}</span><span>${o}</span>`;
+    b.onclick = function(){ if(!answered) select(i, b); };
     opts.appendChild(b);
   });
-  document.getElementById('feedback').style.display = 'none';
-  document.getElementById('next-btn').style.display = 'none';
+  document.getElementById('feedback').style.display='none';
+  document.getElementById('next-btn').style.display='none';
+  document.getElementById('discussion-section').style.display='none';
   answered = false;
+  window.scrollTo(0,0);
 }
 
-function select(idx, btn){
+function select(i, btn){
   answered = true;
   const q = quiz[cur];
-  const fb = document.getElementById('feedback');
   document.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
-  if(idx === q.ans){
-    btn.classList.add('correct'); score++;
-    fb.className = 'feedback-box correct';
-    fb.innerHTML = `<strong>Correct!</strong> ${q.exp}`;
+  const fb = document.getElementById('feedback');
+  if(i === q.ans){
+    btn.classList.add('correct');
+    score++;
+    fb.className='feedback-box correct';
+    fb.innerHTML=`<strong>✓ Correct!</strong>${q.exp}`;
   } else {
     btn.classList.add('wrong');
     document.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');
-    fb.className = 'feedback-box wrong';
-    fb.innerHTML = `<strong>Not quite.</strong> ${q.exp}`;
+    fb.className='feedback-box wrong';
+    fb.innerHTML=`<strong>✗ Not quite.</strong>${q.exp}`;
   }
-  fb.style.display = 'block';
-  document.getElementById('next-btn').style.display = 'inline-flex';
+  fb.style.display='block';
+  document.getElementById('next-btn').style.display='inline-flex';
+  document.getElementById('prog-score').textContent = `${score} pts`;
+  showDiscussion(cur);
 }
 
-function nextQ(){ cur++; if(cur < quiz.length) renderQ(); else endQuiz(); }
+function nextQ(){ cur++; renderQ(); }
+
+function showDiscussion(idx){
+  const key = `q_${quiz[idx].q.slice(0,20)}`;
+  const ds = document.getElementById('discussion-section');
+  ds.style.display='block';
+  renderComments(key);
+  document.getElementById('comment-input').dataset.key = key;
+}
+
+function renderComments(key){
+  const list = document.getElementById('comments-list');
+  const c = comments[key] || [];
+  if(c.length === 0){
+    list.innerHTML='<div class="no-comments">No discussion yet — be the first to add a thought.</div>';
+    return;
+  }
+  list.innerHTML = c.map(cm=>`
+    <div class="comment">
+      <div class="comment-author">${escHtml(cm.name)} ${cm.reg ? '<span style="color:var(--muted);font-weight:400">· '+escHtml(cm.reg)+'</span>' : ''}</div>
+      <div class="comment-text">${escHtml(cm.text)}</div>
+      <div class="comment-time">${cm.time}</div>
+    </div>
+  `).join('');
+  list.scrollTop = list.scrollHeight;
+}
+
+function postComment(){
+  const inp = document.getElementById('comment-input');
+  const key = inp.dataset.key;
+  const text = inp.value.trim();
+  if(!text) return;
+  if(!comments[key]) comments[key] = [];
+  const now = new Date();
+  comments[key].push({
+    name: currentUser.name, reg: currentUser.reg, text,
+    time: now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}) + ' · ' + now.toLocaleDateString()
+  });
+  saveComments();
+  inp.value='';
+  renderComments(key);
+}
 
 function endQuiz(){
-  const pct = Math.round(score/quiz.length*100);
-  document.getElementById('result-ring').style.setProperty('--pct', pct+'%');
-  document.getElementById('result-pct').textContent = pct+'%';
-  document.getElementById('result-sub').textContent = pct >= 70 ? "Excellent work! You have a solid grasp of Biostatistics." : "Good attempt. Keep reviewing the concepts.";
-  leaderboard.push({ ...currentUser, score, total: quiz.length, pct, time: new Date().toLocaleDateString(), color: AVATARS[Math.floor(Math.random()*AVATARS.length)] });
-  leaderboard.sort((a,b) => b.pct - a.pct);
-  localStorage.setItem('biostat_quiz_lb', JSON.stringify(leaderboard));
+  const total = quiz.length;
+  const pct = Math.round((score / total) * 100);
+  document.getElementById('result-ring').style.setProperty('--pct', pct + '%');
+  document.getElementById('result-pct').textContent = pct + '%';
+  document.getElementById('bd-correct').textContent = score;
+  document.getElementById('bd-wrong').textContent = total - score;
+  document.getElementById('bd-total').textContent = total;
+  let title, sub;
+  if(pct >= 90){ title='Outstanding!'; sub='You have an excellent command of critical thinking. Your group is lucky to have you.'; }
+  else if(pct >= 75){ title='Well done!'; sub='Strong performance. Review the explanations on missed questions and you\'ll be at 90% in no time.'; }
+  else if(pct >= 60){ title='Good effort.'; sub='A solid foundation. Re-read the slide sections where you dropped points and try again.'; }
+  else if(pct >= 40){ title='Keep going.'; sub='Critical thinking takes practice. Go back to the slides, focus on barriers and fallacies, and retry.'; }
+  else { title='Keep practising.'; sub='Don\'t be discouraged — review the slides carefully section by section, then come back.'; }
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-sub').textContent = sub;
+  const entry = {
+    name: currentUser.name, reg: currentUser.reg,
+    score, total, pct,
+    time: new Date().toLocaleString(),
+    color: AVATARS[Math.abs(hashStr(currentUser.name)) % AVATARS.length]
+  };
+  leaderboard.push(entry);
+  leaderboard.sort((a,b)=>b.pct-a.pct || b.score-a.score);
+  saveLB();
+  updateStatPlayers();
   showScreen('result');
 }
 
-function restartQuiz(){ showScreen('home'); }
+function restartQuiz(){
+  cur=0; score=0; answered=false;
+  quiz = QUESTIONS.filter(q=>activeTopics.has(q.s)).sort(()=>Math.random()-0.5);
+  showScreen('quiz');
+  renderQ();
+}
 
 function renderLB(){
   const rows = document.getElementById('lb-rows');
   document.getElementById('lb-count').textContent = `${leaderboard.length} attempt${leaderboard.length!==1?'s':''}`;
-  
   if(leaderboard.length === 0){
     rows.innerHTML = '<div class="lb-empty">No attempts yet. Be the first to complete the quiz!</div>';
     return;
   }
-  
   const rankClass = ['gold','silver','bronze'];
   const rankEmoji = ['1st','2nd','3rd'];
-  
   rows.innerHTML = leaderboard.slice(0,20).map((e,i)=>{
     const initials = e.name.split(' ').map(n=>n[0]).join('').toUpperCase().slice(0,2);
     const isYou = currentUser.name && e.name === currentUser.name;
@@ -454,9 +649,11 @@ function renderLB(){
   }).join('');
 }
 
+function hashStr(s){ let h=0; for(let c of s){ h=((h<<5)-h)+c.charCodeAt(0); h|=0; } return h; }
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
 buildTopicGrid();
-document.getElementById('stat-q-count').textContent = QUESTIONS.length;
-document.getElementById('stat-players').textContent = leaderboard.length;
+updateStatPlayers();
 </script>
 </body>
 </html>
